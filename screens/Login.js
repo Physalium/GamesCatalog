@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, Alert } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import {signIn} from '../services/api/firebaseMethods';
+import { signIn } from '../services/api/firebaseMethods';
 
-export default function SignIn() {
+export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   button: {
     width: 200,
     padding: 5,
-    backgroundColor: '#ff9999',
+    backgroundColor: 'white',
     borderWidth: 2,
     borderColor: 'white',
     borderRadius: 15,
@@ -60,31 +60,32 @@ const styles = StyleSheet.create({
     margin: "2%",
   },
   buttonText: {
-    fontSize:20,
-    color: 'white',
+    fontSize: 20,
+    color: 'black',
     fontWeight: 'bold',
     textAlign: 'center',
   },
   container: {
     height: '100%',
     width: '100%',
-    backgroundColor: '#3FC5AB',
+    backgroundColor: '#384040',
     alignItems: 'center',
     justifyContent: 'center',
   },
   formInput: {
-    width: 300,
-    fontSize:18,
+    width: 350,
+    fontSize: 19,
     borderWidth: 1,
-    borderColor:'#a4eddf',
+    backgroundColor: 'white',
+    borderColor: 'black',
     padding: 10,
-    margin: 5,
+    margin: 7,
   },
   text: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 24,
     margin: 10,
     fontWeight: 'bold',
-    color: '#2E6194',
+    color: 'white',
   }
 });

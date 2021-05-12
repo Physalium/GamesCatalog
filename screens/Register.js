@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Alert, ScrollView, Keyboard ,StyleSheet, SafeAreaView} from 'react-native';
+import { View, Text, TextInput, Alert, ScrollView, Keyboard, StyleSheet, SafeAreaView } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { registration } from '../services/api/firebaseMethods';
 
-export default function SignUp({ navigation }) {
+export default function Register({ navigation }) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -44,56 +44,56 @@ export default function SignUp({ navigation }) {
 
   return (
     <SafeAreaView>
-     <View style={styles.container}>
-       <Text style={styles.text}>Create an account </Text>
+      <View style={styles.container}>
+        <Text style={styles.text}>Create an account </Text>
 
-       <ScrollView onBlur={Keyboard.dismiss}>
+        <ScrollView onBlur={Keyboard.dismiss}>
           <TextInput
-          style={styles.textInput}
-          placeholder="First name*"
-          value={firstName}
-          onChangeText={(name) => setFirstName(name)}
+            style={styles.textInput}
+            placeholder="First name*"
+            value={firstName}
+            onChangeText={(name) => setFirstName(name)}
           />
-         <TextInput
-          style={styles.textInput}
-          placeholder="Last name"
-          value={lastName}
-          onChangeText={(name) => setLastName(name)}
-         />
-
-         <TextInput
-          style={styles.textInput}
-          placeholder="Enter your email*"
-          value={email}
-          onChangeText={(email) => setEmail(email)}
-          keyboardType="email-address"
-          autoCapitalize="none"
-         />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Last name"
+            value={lastName}
+            onChangeText={(name) => setLastName(name)}
+          />
 
           <TextInput
-          style={styles.textInput}
-          placeholder="Enter your password*"
-          value={password}
-          onChangeText={(password) => setPassword(password)}
-          secureTextEntry={true}
-         />
-         <TextInput
-          style={styles.textInput}
-          placeholder="Retype your password to confirm*"
-          value={confirmPassword}
-          onChangeText={(password2) => setConfirmPassword(password2)}
-          secureTextEntry={true}
+            style={styles.textInput}
+            placeholder="Enter your email*"
+            value={email}
+            onChangeText={(email) => setEmail(email)}
+            keyboardType="email-address"
+            autoCapitalize="none"
+          />
+
+          <TextInput
+            style={styles.textInput}
+            placeholder="Enter your password*"
+            value={password}
+            onChangeText={(password) => setPassword(password)}
+            secureTextEntry={true}
+          />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Retype your password to confirm*"
+            value={confirmPassword}
+            onChangeText={(password2) => setConfirmPassword(password2)}
+            secureTextEntry={true}
           />
           <TouchableOpacity style={styles.button} onPress={handlePress}>
-           <Text style={styles.buttonText}>Sign Up</Text>
+            <Text style={styles.buttonText}>Register</Text>
           </TouchableOpacity>
 
           <Text style={styles.inlineText}>Already have an account?</Text>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Sign In')}>
-            <Text style={styles.buttonText}>Sign In</Text>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.buttonText}>Log In</Text>
           </TouchableOpacity>
-       </ScrollView>
-     </View>
+        </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }
@@ -102,46 +102,48 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     width: '100%',
-    backgroundColor: '#3FC5AB',
+    backgroundColor: '#384040',
     alignItems: 'center',
     justifyContent: 'center',
   },
   button: {
     width: 200,
     padding: 5,
-    backgroundColor: '#ff9999',
+    backgroundColor: 'white',
     borderWidth: 2,
-    borderColor: 'white',
+    borderColor: 'black',
     borderRadius: 15,
     alignSelf: 'center',
     margin: '5%',
   },
   buttonText: {
-    fontSize:20,
-    color: 'white',
+    fontSize: 20,
+    color: 'black',
     fontWeight: 'bold',
     textAlign: 'center',
   },
   inlineText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'navy',
+    color: 'white',
     textAlign: 'center',
     marginTop: '5%',
   },
   text: {
     textAlign: 'center',
-    fontSize: 25,
+    fontSize: 27,
     margin: '5%',
-    marginTop:'15%',
+    marginTop: '15%',
     fontWeight: 'bold',
-    color: '#2E6194',
+    color: 'white',
   },
   textInput: {
-    width: 300,
-    fontSize:18,
+    width: 350,
+    fontSize: 19,
     borderWidth: 1,
-    borderColor:'#a4eddf',
+    borderRadius: 10,
+    borderColor: 'black',
+    backgroundColor: 'white',
     padding: 10,
     margin: 5,
   },
