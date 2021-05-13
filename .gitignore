@@ -14,3 +14,6 @@ web-build/
 
 #Firebase SDK
 config/keys.js
+
+#environment file for api key
+.env

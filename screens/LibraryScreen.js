@@ -3,8 +3,9 @@ import { View, Text, StyleSheet, Alert } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as firebase from 'firebase';
 import { loggingOut } from '../services/api/firebaseMethods';
+import GamesRepository from '../api/GamesRepository';
 
-export default function Dashboard({ navigation }) {
+export default function LibraryScreen({ navigation }) {
     let currentUserUID = firebase.auth().currentUser.uid;
     const [firstName, setFirstName] = useState('');
 
@@ -31,10 +32,21 @@ export default function Dashboard({ navigation }) {
         navigation.replace('Home');
     };
 
+    const logGames = () => {
+        GamesRepository.GetGamesByName("Bioshock")
+            .then((response) => {
+                console.info(response)
+            });
+    };
+
     return (
         <View style={styles.container}>
             <Text style={styles.titleText}>Dashboard</Text>
             <Text style={styles.text}>Hi {firstName}</Text>
+            <TouchableOpacity style={styles.button} onPress={logGames}>
+                <Text style={styles.buttonText}>Get Games</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity style={styles.button} onPress={handlePress}>
                 <Text style={styles.buttonText}>Log Out</Text>
             </TouchableOpacity>
@@ -50,6 +62,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: 'black',
         borderRadius: 15,
+        marginBottom: 10,
         alignSelf: 'center',
     },
     buttonText: {

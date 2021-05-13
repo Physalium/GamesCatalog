@@ -4,10 +4,10 @@ import * as firebase from 'firebase';
 
 export default function LoadingScreen({ navigation }) {
   useEffect(
-     () => {
+    () => {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-          navigation.replace('Dashboard');
+          navigation.replace('Library');
         } else {
           navigation.replace('Home');
         }
@@ -22,11 +22,11 @@ export default function LoadingScreen({ navigation }) {
   );
 }
 const styles = StyleSheet.create({
-    container: {
-      height: '100%',
-      width: '100%',
-      backgroundColor: '#3FC5AB',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
+  container: {
+    height: '100%',
+    width: '100%',
+    backgroundColor: '#3FC5AB',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
