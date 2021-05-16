@@ -3,10 +3,9 @@ import WelcomeScreen from '../screens/WelcomeScreen';
 import Register from '../screens/Register';
 import Login from '../screens/Login';
 import LoadingScreen from '../screens/LoadingScreen';
-import LibraryScreen from '../screens/LibraryScreen';
+import Sidebar from './Sidebar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
 const Stack = createStackNavigator();
 
 export default function Root() {
@@ -19,9 +18,11 @@ export default function Root() {
                 <Stack.Screen name='Home' component={WelcomeScreen} options={{ headerShown: false }} />
                 <Stack.Screen name='Register' component={Register} options={{ headerShown: false }} />
                 <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
-                <Stack.Screen name='Library' component={LibraryScreen} options={{ headerShown: true }} />
+                <Stack.Screen name='Dashboard' component={Sidebar} options={{ headerShown: false }} />
+
+
             </Stack.Navigator>
-        </NavigationContainer>
+        </NavigationContainer >
     );
 }
 
