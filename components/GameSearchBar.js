@@ -13,24 +13,25 @@ export default function GameSearchBar({ setGames }) {
 
         <SearchBar
             placeholder="Type here..."
-            placeholderTextColor='#fff'
+            placeholderTextColor='black'
             onChangeText={(text) => setKeyword(text)}
             value={keyword}
             round
             showLoading
 
-            searchIcon={{ color: "#fff" }}
-            clearIcon={{ color: "#fff" }}
+            searchIcon={{ color: "black" }}
+            clearIcon={{ color: "black" }}
             containerStyle={{
-                backgroundColor: "darkslategrey",
+                backgroundColor: "gray",
                 borderBottomColor: 'transparent',
-                borderTopColor: 'transparent'
+                borderTopColor: 'transparent',
+                borderRadius: 5
             }
             }
             inputContainerStyle={{
-                backgroundColor: "gray"
+                backgroundColor: "white"
             }}
-            inputStyle={{ color: '#fff' }}
+            inputStyle={{ color: 'black' }}
             onSubmitEditing={getGames}
 
         />

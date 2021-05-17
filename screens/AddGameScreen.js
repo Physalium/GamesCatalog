@@ -5,19 +5,27 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import GameSearchBar from '../components/GameSearchBar';
 import Game from '../components/Game';
 import Constants from 'expo-constants';
+import { addGame } from '../api/firebaseMethods';
 
 const statusBarHeight = Constants.statusBarHeight
 
 export default function AddGameScreen() {
 
   const [games, setGames] = useState(null);
-
+  const onPress = ((game) => {
+    console.log(game)
+    game.finished = false;
+    addGame(game)
+  }
+  )
   return (
     <SafeAreaView style={styles.container}>
       <GameSearchBar setGames={setGames} />
-      <ScrollView>
+      <ScrollView >
         {games != null &&
-          games.map((game, i) => (<Game i={i} game={game} />))}
+          games.map(game => {
+            return <Game i={game.slug} game={game} selectGame={onPress} />
+          })}
       </ScrollView>
     </SafeAreaView>
   );
@@ -25,7 +33,7 @@ export default function AddGameScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#384040',
+    backgroundColor: 'white',
     paddingTop: Platform.OS === 'android' ? statusBarHeight : 0
   }
 });

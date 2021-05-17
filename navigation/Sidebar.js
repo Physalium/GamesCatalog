@@ -3,7 +3,7 @@ import { Button, View } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import LibraryScreen from '../screens/LibraryScreen';
 import AddGameScreen from '../screens/AddGameScreen';
-import { loggingOut } from '../services/api/firebaseMethods';
+import { loggingOut } from '../api/firebaseMethods';
 export default function Sidebar() {
 
     const Drawer = createDrawerNavigator();
@@ -23,7 +23,7 @@ export default function Sidebar() {
             )
         }}>
             <Drawer.Screen name="Library" component={LibraryScreen} />
-            <Drawer.Screen name="test" component={AddGameScreen} />
+            <Drawer.Screen name="Add new game" component={AddGameScreen} />
         </Drawer.Navigator>
     );
 }
