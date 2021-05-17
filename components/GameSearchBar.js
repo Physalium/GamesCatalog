@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import { SearchBar } from 'react-native-elements'
 
-export default function GameSearchBar() {
+export default function GameSearchBar({ setGames }) {
     const [keyword, setKeyword] = useState("");
 
-    const logGames = () => {
+    const getGames = () => {
         GamesRepository.GetGamesByName(keyword)
-            .then((response) => {
-                console.info(response)
-            });
+            .then(games => setGames(games));
     };
 
     return (
@@ -33,7 +31,7 @@ export default function GameSearchBar() {
                 backgroundColor: "gray"
             }}
             inputStyle={{ color: '#fff' }}
-            onSubmitEditing={logGames}
+            onSubmitEditing={getGames}
 
         />
     )

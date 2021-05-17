@@ -1,18 +1,24 @@
 import React, { useState } from 'react'
-import { SearchBar } from 'react-native-elements'
 import { SafeAreaView } from 'react-native';
 import { StyleSheet, Platformm, View, Text } from 'react-native';
-import * as firebase from 'firebase';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import GameSearchBar from '../components/GameSearchBar';
+import Game from '../components/Game';
 import Constants from 'expo-constants';
 
 const statusBarHeight = Constants.statusBarHeight
 
 export default function AddGameScreen() {
 
+  const [games, setGames] = useState(null);
+
   return (
     <SafeAreaView style={styles.container}>
-      <GameSearchBar />
+      <GameSearchBar setGames={setGames} />
+      <ScrollView>
+        {games != null &&
+          games.map((game, i) => (<Game i={i} game={game} />))}
+      </ScrollView>
     </SafeAreaView>
   );
 }

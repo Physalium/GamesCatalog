@@ -1,21 +1,17 @@
 import React from 'react';
-import {
-  View,
-} from 'react-native';
+import { View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import { ListItem, Image } from 'react-native-elements'
 
 export default function Game({ i, game }) {
   return (
     <ListItem key={i} bottomDivider>
       <View style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}>
         <TouchableOpacity >
-          <Image source={{
-            uri: l.urlToImage
-          }}
-            style={{ width: 100, height: 100 }} />
 
           <ListItem.Content>
-            <ListItem.Title>{game.title}</ListItem.Title>
-            <ListItem.Subtitle>{game.description}</ListItem.Subtitle>
+            <ListItem.Title>{game.name}</ListItem.Title>
+            <ListItem.Subtitle>{game.rating}</ListItem.Subtitle>
           </ListItem.Content>
         </TouchableOpacity>
       </View>
