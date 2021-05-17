@@ -3,7 +3,7 @@ import request from './request'
 function GetGamesByName(name) {
     return request({
         method: 'get',
-        url: `games?search=${name}&page_size=30&`,
+        url: `games?search=${name}&page_size=15&`,
     }).then((response) => {
         const results = [...response.results];
         const games = results.map(item => ({
